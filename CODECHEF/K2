@@ -1,0 +1,55 @@
+#include <cstdio>
+#include <cstdlib>
+#include <algorithm>
+using namespace std;
+typedef long long int Rohan;
+int main()
+{
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+		Rohan n;
+		scanf("%lld",&n);
+		if(n <= 3)
+		{
+			printf("2\n");
+			continue;
+		}
+		Rohan b = n-1;
+		for(Rohan i=2; i*i*i<n; i++)
+		{
+			Rohan m = n;
+			int n = 0, a[100];
+			while(m)
+			{
+				a[n++] = (int)(m%i);
+				m/=i;
+			}
+			int f = 1;
+			for(int p=0,q=n-1;p<q && f;p++,q--) if(a[p]!=a[q]) f=0;
+			if(f) { b = i; break;}
+		}
+		if(b == n-1)
+		{
+			Rohan lo = 2;
+			while(lo*lo*lo <= n) lo++;
+			while(lo*lo < n)
+			{
+				Rohan m = n;
+				int A = (int)(m%lo); m/=lo;
+				int B = (int)(m%lo); m/=lo;
+				int C = (int)m;
+				if(A == C) { b = lo; break;}
+				lo++;
+			}
+		}
+		if(b == n-1)
+		{
+			for(Rohan i=2;i*i<n;i++)
+				if(n%i == 0 && i+1 < n/i) b = min(b,(n/i) - 1);
+		}
+		printf("%lld\n",b);
+	}
+	return 0;
+}
