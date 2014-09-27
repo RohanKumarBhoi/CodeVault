@@ -1,0 +1,12 @@
+import math
+def ftest(x):
+    a=int(math.sqrt(x))
+    if (a*a==x):
+        return 1
+    else : return 0
+t=int(input())
+for test in range(0,t):
+    n=int(input())
+    if (ftest(5*(n**2)+4)==1 or ftest(5*(n**2)-4)==1):
+        print("Yes")
+    else : print("No") 
