@@ -1,0 +1,25 @@
+#include <iostream>
+ 
+unsigned countZeros(unsigned &number)
+{
+    unsigned zeros = 0;
+    while (number >= 5)
+    {
+        number /= 5;
+        zeros += number;
+    }
+    return zeros;
+}
+ 
+int main()
+{
+    unsigned testCases;
+    unsigned number;
+    std::cin >> testCases;
+    for (unsigned i = 0; i != testCases; ++i)
+    {
+        std::cin >> number;
+        std::cout << countZeros(number) << std::endl;
+    }
+    return 0;
+}  
