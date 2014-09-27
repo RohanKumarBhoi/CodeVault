@@ -1,0 +1,23 @@
+# include <iostream>
+using namespace std;
+ 
+int main()
+{
+	long long n,m,q,i,r;
+	cin>>n>>m;
+	for(i=0;i<m;i++)
+	{
+		cin>>q;
+		if(q<(n+2))
+		cout<<"0\n";
+		else
+		{
+			if((2*n+1)>q)
+			cout<<q-n-1<<"\n";
+			else
+            cout<<3*n-q+1<<"\n";
+		}
+	}
+ 
+	return 0;
+} 
